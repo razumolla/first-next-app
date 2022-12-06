@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 function PostList({ data }) {
     console.log("Post data", data);
     return (
@@ -7,7 +9,9 @@ function PostList({ data }) {
                 data.map(post => {
                     return (
                         <div key={post.id}>
-                            <h3>Post Title: {post.title} </h3>
+                            <Link href={`post/${post.id}`} passHref>
+                                <h3>Post Title: {post.title} </h3>
+                            </Link>
                             <h3>Post Body: {post.body} </h3>
                             <hr />
                         </div>
